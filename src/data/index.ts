@@ -27,7 +27,7 @@ export const CARDS = [
   {
     title: 'Design',
     description:
-      'Bringing ideas to life with stunning, functional designs that captivate and engage. From branding strategies to user-friendly interfaces, we craft impactful solutions for web, mobile applications, and logos tailored to your vision.',
+      'Bringing ideas to life with stunning, functional designs that captivate and engage. From branding strategies to user-friendly interfaces, we craft impactful solutions for web, mobile applications, and logos tailored for you.',
     services: [
       ['Web pages', 'Branding'],
       ['Mobile applications', 'Logo'],
@@ -59,32 +59,32 @@ export const CARDS = [
 export const APPROACH_CARDS = [
   {
     icon: First,
-    title: 'Консультация',
+    title: 'Consultation',
     description:
-      'Мы внимательно выслушиваем пожелания и представления заказчика о проекте. Затем делимся своим видением и, на основе этого обмена, приходим к общему соглашению.',
+      `We carefully listen to the client's wishes and vision for the project. Then, we share our perspective and, based on this exchange, reach a mutual agreement.`,
   },
   {
     icon: Second,
-    title: 'Совместный обзор',
+    title: 'Collaborative Review',
     description:
-      'Затем приступаем к созданию дизайна. После завершения проводим совместный обзор, где заказчик, при желании может внести изменения.',
+      'We then proceed with the design process. Once completed, we conduct a collaborative review, where the client can provide feedback and request changes if desired.',
   },
   {
     icon: Third,
-    title: 'Разработка',
-    description: 'После утверждения дизайна, мы приступаем к непосредственной разработке продукта.',
+    title: 'Development',
+    description: 'Once the design is approved, we begin the actual development of the product.',
   },
   {
     icon: Fourth,
-    title: 'Тестирование',
+    title: 'Testing',
     description:
-      'По завершении разработки тщательно тестируем каждый компонент продукта. Затем приглашаем заказчика для пользовательского тестирования.',
+      'After development is complete, we thoroughly test every component of the product. Then, we invite the client for user testing.',
   },
   {
     icon: Fifth,
-    title: 'Финальный результат',
+    title: 'Final Result',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates laboriosam ad eius, culpa soluta ab. Beatae optio quas adipisci aliquam quia velit soluta iste dicta, modi tenetur magnam, aut laborum placeat est. Unde minima amet illo eveniet qui sunt omnis laudantium laboriosam, officia dignissimos molestias tempore velit. Provident, explicabo. Dolor.',
+      'We deliver a polished, fully functional product ready to meet your needs and exceed expectations. Every detail is refined to ensure quality, functionality, and satisfaction.',
   },
 ];
 

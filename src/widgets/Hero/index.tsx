@@ -1,10 +1,10 @@
 'use client';
-import { useRef } from 'react';
 import Image from 'next/image';
+import { useRef } from 'react';
 
 import useFloatingImages from '@/composables/useFloatingImages';
 
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { main_1, main_2, main_3 } from './images/index';
 
@@ -33,13 +33,13 @@ const Hero = () => {
       >
         <motion.h1
           ref={heading1}
-          className="relative z-20 mt-[-5vw] w-full text-center text-[4.5vw] md:text-[6vw] md:leading-[1.2] font-extrabold text-text-1 max-w-[95%]"
+          className="relative z-20 w-full text-center text-[4.5vw] md:text-[6vw] md:leading-[1.2] font-extrabold text-text-1 max-w-[95%]"
           style={{ opacity }}
         >
-          СОЗДАЕМ УНИКАЛЬНОСТЬ
+          CREATING UNIQUENESS
         </motion.h1>
         <motion.h2 ref={heading2} className="z-20 text-[1.7vw] md:text-[3vw] font-medium text-text-1/7 5" style={{ opacity }} >
-          Креативное агенство из Туркменистана
+        A creative agency from Malaysia.
         </motion.h2>
         <div ref={ref1} className={`absolute left-0 top-0 z-10 h-full w-full`}>
           <Image src={main_1} fill={true} alt="" className='' objectFit="cover" />
