@@ -1,9 +1,5 @@
-# Demo site of a creative agency
-
-Adaptive and stylish landing page of a creative agency with modern animations and interactive components. The project is designed to create a vivid impression.
-## Design
-- **[Figma](https://www.figma.com/design/65gFXT6dvNfDjkX5osjZbu/Untitled?node-id=5-2&t=zgqFDE8HGEajkIoE-1)**
 ## Functionality
+
 - **Adaptive design**: optimized for different devices and screens.
 - **Animated sidebar menu**: smooth animations for opening and closing the menu.
 - **Smoke cursor**: spectacular smoky cursor for an additional wow effect.
@@ -21,25 +17,22 @@ Adaptive and stylish landing page of a creative agency with modern animations an
 
 ## Running the project
 
- *Clone the repository and run* :
+_Clone the repository and run_ :
 
-   ```bash
-   git clone https://github.com/Shatlyk1011/agency-website.git
-   ```
+```
+cd agency-website
+```
 
-   ```
-   cd agency-website
-   ```
+```
+npm i
+```
 
-   ```
-   npm i
-   ```
-
-   ```
-   npm run dev
-   ```
+```
+npm run dev
+```
 
 ## **Notes**
+
 **The smoke cursor is implemented using WebGL. On low-performance devices or outdated browsers, this effect may slow down the site or display incorrectly.** <br/> <br/>
 **To disable the cursor locally, go to the root page `app/page.tsx` and disable the ` <ShadowCursor />` component**
 
