@@ -90,33 +90,33 @@ export const APPROACH_CARDS = [
 
 export const RADIO_FIELDS = [
   {
-    title: 'Какой тип услуг вас интересует?',
+    title: 'What type of services are you interested in?',
     classes: 'mr-[2.25vw]',
     radioArray: [
-      { name: 'Дизайн / Брендинг', value: 'design/branding' },
-      { name: 'Веб разработка', value: 'web-dev' },
-      { name: 'Мобильная разработка', value: 'mobile-dev' },
-      { name: 'Все вышеперечисленные', value: 'all-types' },
-      { name: 'Другое', value: 'other-service' },
+      { name: 'Design / Branding', value: 'design/branding' },
+      { name: 'Web Development', value: 'web-dev' },
+      { name: 'Mobile Development', value: 'mobile-dev' },
+      { name: 'All of the above', value: 'all-types' },
+      { name: 'Other', value: 'other-service' },
     ],
     formKey: '_service',
   },
   {
-    title: 'Каков ваш бюджет?',
+    title: 'What is your budget?',
     classes: '',
     radioArray: [
-      { name: '8000TMT - 15000TMT', value: '8-15' },
-      { name: '15000TMT - 25000TMT', value: '15-25' },
-      { name: '25000TMT - 50000TMT', value: '25-50' },
-      { name: '50000TMT+', value: '50+' },
+      { name: 'RM 2000 - RM 4000', value: '2-4' },
+      { name: 'RM 4000 - RM 6000', value: '4-6' },
+      { name: 'RM 6000 - RM 8000', value: '6-8' },
+      { name: 'RM 8000+', value: '8+' },
     ],
     formKey: '_budget',
   },
   {
-    title: 'Примерно, сколько страниц будет иметь ваш проект?',
+    title: 'Approximately, how many pages will your project have?',
     classes: 'mr-[2.25vw]',
     radioArray: [
-      { name: 'Меньше 5-ти', value: '<5' },
+      { name: 'Less than 5', value: '<5' },
       { name: '6-10', value: '6-10' },
       { name: '11-20', value: '11-20' },
       { name: '20+', value: '20+' },
@@ -124,25 +124,26 @@ export const RADIO_FIELDS = [
     formKey: '_pages',
   },
   {
-    title: 'Насколько быстро вам нужен проект?',
+    title: 'How quickly do you need the project?',
     classes: '',
     radioArray: [
-      { name: 'Максимально быстро', value: 'max-fast' },
-      { name: 'Высокая приоритетность ', value: 'high-prio ' },
-      { name: 'Обычное время', value: 'regular' },
-      { name: 'Не торопитесь ', value: 'take-your-time' },
+      { name: 'As fast as possible', value: 'max-fast' },
+      { name: 'High priority', value: 'high-prio ' },
+      { name: 'Regular timeframe', value: 'regular' },
+      { name: 'Take your time', value: 'take-your-time' },
     ],
     formKey: '_quickness',
   },
 ];
 
 export const INPUT_FIELDS = [
-  { label: 'Выше имя', name: 'first', classes: 'inline-block !w-[calc(50%-2vw)] mr-[4vw]', required: true },
-  { label: 'Ваш номер', name: 'phone', classes: 'inline-block !w-[calc(50%-2vw)]', type: 'number', required: true },
+  { label: 'Your Name', name: 'first', classes: 'inline-block !w-[calc(50%-2vw)] mr-[4vw]', required: true },
+  { label: 'Your Phone', name: 'phone', classes: 'inline-block !w-[calc(50%-2vw)]', type: 'number', required: true },
   { label: 'Email', name: 'email', classes: '', type: 'email' },
-  { label: 'Название компании', name: 'company', classes: '', required: true },
-  { label: 'Ссылка на сайт', name: 'websiteUrl', classes: '' },
+  { label: 'Company Name', name: 'company', classes: '', required: true },
+  { label: 'Website URL', name: 'websiteUrl', classes: '' },
 ];
+
 
 export const BOOK_FORM_DEFAULT_STATE = {
   _service: null,
