@@ -10,14 +10,74 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/RadioGroup';
 
 interface Props {}
 
+interface FormErrors {
+  [key: string]: string;
+}
+
+interface FormState {
+  [key: string]: string | null;
+  _service: null;
+  _budget: null;
+  _pages: null;
+  _quickness: null;
+  first: string;
+  phone: string;
+  email: string;
+  company: string;
+  websiteUrl: string;
+  message: string;
+}
+
 const Index: FC<Props> = () => {
-  const [form, setForm] = useState(BOOK_FORM_DEFAULT_STATE);
+  const [form, setForm] = useState<FormState>(BOOK_FORM_DEFAULT_STATE);
+  const [errors, setErrors] = useState<FormErrors>({});
   const { push } = useRouter();
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault()
-    console.log(form)
-  }
+  const validateForm = () => {
+    const newErrors: FormErrors = {};
+    
+    // Validate radio fields
+    RADIO_FIELDS.forEach((field) => {
+      if (!form[field.formKey]) {
+        newErrors[field.formKey] = `Please select a ${field.title.toLowerCase()}`;
+      }
+    });
+
+    // Validate input fields
+    INPUT_FIELDS.forEach((field) => {
+      // Skip validation for optional fields
+      if (field.name === 'company' || field.name === 'websiteUrl') return;
+      
+      // Validate required fields
+      if (!form[field.name]) {
+        newErrors[field.name] = `${field.label} is required`;
+      }
+      if (field.type === 'email' && form[field.name] && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form[field.name] as string)) {
+        newErrors[field.name] = 'Please enter a valid email address';
+      }
+    });
+
+    // Validate message
+    if (!form.message) {
+      newErrors.message = 'Message is required';
+    } else if (form.message.length < 20) {
+      newErrors.message = 'Message must be at least 20 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Form is valid:', form);
+      // Process form submission
+    } else {
+      console.log('Form validation failed');
+      return; // Stop here if validation fails
+    }
+  };
 
   return (
     <div className="mx-auto max-w-[70vw] md:max-w-[85vw] px-[4vw] ">
@@ -43,17 +103,19 @@ const Index: FC<Props> = () => {
               onValueChange={(value) => setForm((prev) => ({ ...prev, [item.formKey]: value }))}
               key={item.title}
               className={`mb-[1.75vw] inline-block w-[calc(50%-1.75vw)] ${item.classes}`}
-              required={true}
             >
               <h4 className="mb-[0.2vw] md:mb-[0.5vw] text-[1.3vw] md:text-[1.6vw] font-medium">{item.title}</h4>
               {item.radioArray.map((radio) => (
                 <div key={radio.value} className="flex items-center space-x-[0.65vw] md:space-x-[1vw] md:space-y-[0.3vw] font-[400]">
-                  <RadioGroupItem value={radio.value} id={radio.name} required={true} />
+                  <RadioGroupItem value={radio.value} id={radio.name} />
                   <label htmlFor={radio.name} className="text-[1vw] md:text-[1.25vw] leading-[1.75vw]">
                     {radio.name}
                   </label>
                 </div>
               ))}
+              {errors[item.formKey] && (
+                <p className="text-red-500 text-[0.9vw] mt-[0.5vw] block">{errors[item.formKey]}</p>
+              )}
             </RadioGroup>
           ))}
 
@@ -69,8 +131,10 @@ const Index: FC<Props> = () => {
                   name={item.name}
                   id={item.label}
                   className="h-[3vw] md:h-[4vw] w-full appearance-none rounded-[0.25vw] border-[0.125vw] border-primary/80 bg-transparent px-[1vw] py-[0.8vw]"
-                  required={item.required}
                 />
+                {errors[item.name] && (
+                  <p className="text-red-500 text-[0.9vw] mt-[0.5vw] block">{errors[item.name]}</p>
+                )}
               </div>
             ))}
             <div className="w-full">
@@ -85,6 +149,9 @@ const Index: FC<Props> = () => {
                 name="message"
                 className="min-h-[10vw] w-full resize-none border-[0.125vw] rounded-[0.125vw] text-[1.2vw] md:text-[1.5vw] border-primary/80 bg-transparent px-[0.8vw] py-[0.6vw]"
               />
+              {errors.message && (
+                <p className="text-red-500 text-[0.9vw] mt-[0.5vw] block">{errors.message}</p>
+              )}
             </div>
           </div>
 
