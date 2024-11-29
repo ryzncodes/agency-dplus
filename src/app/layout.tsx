@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'Digitalize Plus',
     images: [
       {
-        url: 'https://digitalizeplus.com/og-image.jpg',
+        url: 'https://digitalizeplus.com/og-image.png',
         width: 1200,
         height: 630,
       }
