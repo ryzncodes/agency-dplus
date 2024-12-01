@@ -1,19 +1,31 @@
-## Functionality
+# Digitalize Plus Agency Website
 
-- **Adaptive design**: optimized for different devices and screens.
-- **Animated sidebar menu**: smooth animations for opening and closing the menu.
-- **Smoke cursor**: spectacular smoky cursor for an additional wow effect.
-- **Request form**: ready-made form with interactive fields for sending requests.
-- **Animated components**: dynamic transitions and effects for components to liven up the interface.
+A modern, animated website for Digitalize Plus - a Malaysian creative agency specializing in digital solutions, web design, branding, and marketing strategies.
 
-## Libraries
+## Features
 
-- **[TailwindCSS](https://tailwindcss.com/)** — a utility CSS framework for creating responsive interfaces.
-- **[GSAP](https://greensock.com/gsap/)** — a library for creating high-performance animations.
-- **[Framer Motion](https://www.framer.com/motion/)** — declarative animations and gestures for React components.
-- **[Lenis](https://github.com/darkroomengineering/lenis)** — custom scroll for smooth user experience.
-- **[Edil Ozi](https://github.com/Edil-ozi/edil-ozi)** — ready-made animated components for React applications.
-- **[shadcn/ui](https://ui.shadcn.dev/)** — a collection of interface components with full customization support.
+- **Responsive Design**: Fully optimized for all devices and screen sizes
+- **Modern UI/UX**: Clean, professional interface with smooth animations
+- **Performance Optimized**: Fast loading times and optimized assets
+- **Interactive Elements**:
+  - Animated sidebar menu with smooth transitions
+  - WebGL-powered smoke cursor effect
+  - Smooth scroll implementation
+  - Dynamic hover effects and animations
+  - Interactive contact form with email integration
+
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Styling**:
+  - [TailwindCSS](https://tailwindcss.com/)
+  - [SCSS](https://sass-lang.com/)
+- **Animations**:
+  - [GSAP](https://greensock.com/gsap/)
+  - [Framer Motion](https://www.framer.com/motion/)
+- **Smooth Scroll**: [Lenis](https://github.com/studio-freight/lenis)
+- **Email Integration**: [Resend](https://resend.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
 
 ## Running the project
 
@@ -31,9 +43,31 @@ npm i
 npm run dev
 ```
 
-## **Notes**
+Open [http://localhost:3400](http://localhost:3400) to view the site.
 
-**The smoke cursor is implemented using WebGL. On low-performance devices or outdated browsers, this effect may slow down the site or display incorrectly.** <br/> <br/>
-**To disable the cursor locally, go to the root page `app/page.tsx` and disable the ` <ShadowCursor />` component**
+## Performance Considerations
+
+### Smoke Cursor Effect
+
+The WebGL-powered smoke cursor effect may impact performance on lower-end devices. To disable it:
+
+1. Open `src/app/page.tsx`
+2. Comment out or remove the `<ShadowCursor />` component
+
+## Deployment
+
+The site is configured for deployment on Vercel. Ensure you:
+
+1. Set up required environment variables in your Vercel project settings
+2. Connect your repository to Vercel
+3. Deploy using Vercel's automated deployment
+
+## Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Submit a Pull Request
 
 This site is completely made using VW units (view width). [More](https://www.sitepoint.com/css-viewport-units-quick-start/)
