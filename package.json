@@ -24,6 +24,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-intersection-observer": "^9.8.2",
+    "resend": "^4.0.1",
     "sass": "^1.71.1",
     "scss": "^0.2.4",
     "tailwind-merge": "^2.3.0",

@@ -32,6 +32,7 @@ const Index: FC<Props> = () => {
   const [form, setForm] = useState<FormState>(BOOK_FORM_DEFAULT_STATE);
   const [errors, setErrors] = useState<FormErrors>({});
   const { push } = useRouter();
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const validateForm = () => {
     const newErrors: FormErrors = {};
@@ -68,19 +69,57 @@ const Index: FC<Props> = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Form is valid:', form);
-      // Process form submission
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
+
+        setShowSuccessModal(true);
+      } catch (error) {
+        // Optionally show an error message to the user
+      }
     } else {
-      console.log('Form validation failed');
-      return; // Stop here if validation fails
+      return;
     }
   };
 
   return (
-    <div className="mx-auto max-w-[70vw] md:max-w-[85vw] px-[4vw] ">
+    <div className="mx-auto max-w-[70vw] md:max-w-[85vw] px-[4vw] relative">
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50">
+          <div className="bg-bg-2 p-[2vw] rounded-lg shadow-lg text-center relative">
+            <button 
+              onClick={() => {
+                setShowSuccessModal(false);
+                setForm(BOOK_FORM_DEFAULT_STATE); // Reset form when closing modal
+              }}
+              className="absolute top-[0.5vw] right-[0.5vw] p-[0.5vw] hover:bg-stone-800 rounded-full"
+            >
+              <svg 
+                className="w-[1.2vw] h-[1.2vw] md:w-[1.8vw] md:h-[1.8vw] fill-stone-400 hover:fill-stone-300" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </button>
+            <h2 className="text-[2vw] md:text-[3vw] font-medium mb-[1vw]">Thank You!</h2>
+            <p className="text-[1.2vw] md:text-[2vw] text-gray-300">Your request has been submitted successfully.</p>
+          </div>
+        </div>
+      )}
+
       <div className="relative">
         <button
           className=" group absolute left-0 top-[25%] z-10 box-content rounded-full bg-stone-800 p-[0.5vw] hover:bg-stone-800"
