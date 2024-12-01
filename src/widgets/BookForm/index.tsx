@@ -143,11 +143,17 @@ const Index: FC<Props> = () => {
               key={item.title}
               className={`mb-6 sm:mb-[1.75vw] inline-block w-full sm:w-[calc(50%-1.75vw)] ${item.classes}`}
             >
-              <h4 className="mb-2 sm:mb-[0.2vw] md:mb-[0.5vw] text-lg sm:text-[1.3vw] md:text-[1.6vw] font-medium">{item.title}</h4>
+              <h4 className="mb-2 sm:mb-[0.2vw] md:mb-[0.5vw] text-lg sm:text-[1.3vw] md:text-[3vw] font-medium">{item.title}</h4>
               {item.radioArray.map((radio) => (
-                <div key={radio.value} className="flex items-center space-x-2 sm:space-x-[0.65vw] md:space-x-[1vw] md:space-y-[0.3vw] font-[400]">
+                <div 
+                  key={radio.value} 
+                  className="flex items-center mb-3 sm:mb-[1vw] md:mb-[2vw] space-x-2 sm:space-x-[0.65vw] md:space-x-[1vw] font-[400]"
+                >
                   <RadioGroupItem value={radio.value} id={radio.name} />
-                  <label htmlFor={radio.name} className="text-base sm:text-[1vw] md:text-[1.25vw] leading-[1.75vw]">
+                  <label 
+                    htmlFor={radio.name} 
+                    className="text-lg sm:text-[1.1vw] md:text-[3vw] leading-normal"
+                  >
                     {radio.name}
                   </label>
                 </div>
@@ -161,7 +167,7 @@ const Index: FC<Props> = () => {
           <div className="w-full space-y-6 sm:space-y-[2vw] text-base sm:text-[1.1vw]">
             {INPUT_FIELDS.map((item) => (
               <div key={item.label} className={`w-full ${item.classes}`}>
-                <label className="leading-[1.5] mb-2 sm:mb-[0.4vw] text-lg sm:text-[1.2vw] md:text-[1.5vw] inline-block">
+                <label className="leading-[1.5] mb-2 sm:mb-[0.4vw] text-lg sm:text-[1.2vw] md:text-[3vw] inline-block">
                   {item.label}
                 </label>
                 <input
@@ -169,7 +175,7 @@ const Index: FC<Props> = () => {
                   type={item.type || 'text'}
                   name={item.name}
                   id={item.label}
-                  className="h-12 sm:h-[3vw] md:h-[4vw] w-full appearance-none rounded-[0.25vw] border-[0.125vw] border-primary/80 bg-transparent px-4 sm:px-[1vw] py-2 sm:py-[0.8vw]"
+                  className="h-12 sm:h-[3vw] md:h-[4vw] w-full appearance-none rounded-[0.25vw] border-[0.125vw] border-primary/80 bg-transparent px-4 sm:px-[1vw] py-4 sm:py-[1.8vw]"
                 />
                 {errors[item.name] && (
                   <p className="text-red-500 text-sm sm:text-[0.9vw] mt-2 sm:mt-[0.5vw] block">{errors[item.name]}</p>
@@ -177,7 +183,7 @@ const Index: FC<Props> = () => {
               </div>
             ))}
             <div className="w-full">
-              <label className="leading-[1.5] mb-2 sm:mb-[0.4vw] text-lg sm:text-[1.2vw] md:text-[1.5vw] inline-block" htmlFor="message">
+              <label className="leading-[1.5] mb-2 sm:mb-[0.4vw] text-lg sm:text-[1.2vw] md:text-[3vw] inline-block" htmlFor="message">
                 Tell us about your project.
               </label>
               <textarea
@@ -186,7 +192,7 @@ const Index: FC<Props> = () => {
                 onChange={({ target: { name, value } }) => setForm((prev) => ({ ...prev, [name]: value }))}
                 id="message"
                 name="message"
-                className="min-h-[150px] sm:min-h-[10vw] w-full resize-none border-[0.125vw] rounded-[0.125vw] text-base sm:text-[1.2vw] md:text-[1.5vw] border-primary/80 bg-transparent px-4 sm:px-[0.8vw] py-2 sm:py-[0.6vw]"
+                className="min-h-[150px] sm:min-h-[10vw] w-full resize-none border-[0.125vw] rounded-[0.125vw] text-base sm:text-[1.2vw] md:text-[3vw] border-primary/80 bg-transparent px-4 sm:px-[0.8vw] py-2 sm:py-[0.6vw]"
               />
               {errors.message && (
                 <p className="text-red-500 text-sm sm:text-[0.9vw] mt-2 sm:mt-[0.5vw] block">{errors.message}</p>
@@ -197,7 +203,7 @@ const Index: FC<Props> = () => {
           <Button
             title="Submit"
             type="submit"
-            classes="py-4 px-8 sm:py-[1.2vw] sm:px-[5vw] md:py-[1.6vw] md:px-[8vw] text-base sm:text-[1.1vw] md:text-[1.5vw] bg-bg-1/90 hover:bg-bg-1/80"
+            classes="py-4 px-8 sm:py-[1.2vw] sm:px-[5vw] md:py-[1.6vw] md:px-[8vw] text-base sm:text-[1.1vw] md:text-[3vw] bg-bg-1/90 hover:bg-bg-1/80"
             btnClasses="p-1 sm:p-[0.2vw] md:p-[0.25vw] capitalize self-start mt-8 sm:mt-[2.5vw]"
           />
         </div>
