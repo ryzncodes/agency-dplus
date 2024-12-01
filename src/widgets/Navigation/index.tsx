@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
 import SidebarMenu from '@/components/SidebarMenu';
@@ -32,7 +33,13 @@ const Index: FC<Props> = () => {
         </button>
       </div>
       <button title="Digitalize Plus" className="p-[2vw] fixed z-[100] top-0 left-0 group">
-        <LogoIcon className="w-[5vw] h-[5vw] group-hover:text-white/80 transition duration-300" />
+        <Image 
+          src="/images/logo-dp.png" 
+          alt="Digitalize Plus Logo"
+          width={80}
+          height={50}
+          className="w-[4vw] h-auto group-hover:opacity-80 transition duration-300"
+        />
       </button>
       <AnimatePresence mode="wait">{isActive && (
         <SidebarMenu close={closeSidebar} />
