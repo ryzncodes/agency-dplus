@@ -1,5 +1,5 @@
+import { scale, slide } from '@/shared/utils/animations';
 import { motion } from 'framer-motion';
-import { slide, scale } from '@/shared/utils/animations';
 
 import { FC } from 'react';
 
@@ -29,7 +29,7 @@ const Index: FC<Props> = ({ data, isActive, setSelectedIndicator, handleClick })
         variants={scale}
         animate={isActive ? 'open' : 'closed'}
       ></motion.div>
-      <div tabIndex={0} className="cursor-pointer text-[2.5vw] md:text-[3vw] leading-[1.35] md:leading-[1.25] font-semibold tracking-wide duration-200  transition-[cubic-bezier(.16,1,.3,1)] hover:translate-x-[1.6vw]">
+      <div tabIndex={0} className="cursor-pointer text-[3.5vw] md:text-[4.5vw] leading-[1.35] md:leading-[1.25] font-semibold tracking-wide duration-200  transition-[cubic-bezier(.16,1,.3,1)] hover:translate-x-[1.6vw]">
         {title}
       </div>
     </motion.div>
