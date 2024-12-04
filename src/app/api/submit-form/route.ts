@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     } = formData;
 
     const result = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'contact@digitalizeplus.com',
       to: 'faizkasman97@gmail.com',
       subject: 'New Website Request Submission',
       html: `
