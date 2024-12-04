@@ -15,14 +15,14 @@ const Index: FC<Props> = ({ card: { title, services, description, number, classe
       <h4 className="text-[3.7vw] md:text-[7vw] md:mt-[3vw] font-light">{title}</h4>
       <div className={`flex items-start space-x-[3vw] md:space-x-0 pt-[3vw] first:border-none md:flex-col ${classes}`}>
         <div className="flex-1 md:mb-[2vw]">
-          <div className="flex flex-wrap space-y-[2vw] md:space-y-[1.5vw]">
+          <div className="flex flex-col md:flex-col space-y-[2vw] md:space-y-[1.5vw]">
             {services.map((service: string[], i: number) => {
               return (
                 <ul key={i} className="flex items-center space-x-[5vw] w-1/2 md:w-full text-[1.7vw] md:text-[3vw] md:font-semibold">
                   {service.map((s) => (
                     <li key={s} className="flex items-center space-x-[0.6vw]">
                       <div className="h-[1.2vw] w-[1.2vw] rounded-full bg-[#fff]/40"></div>
-                      <p>{s}</p>
+                      <p className="whitespace-nowrap">{s}</p>
                     </li>
                   ))}
                 </ul>
